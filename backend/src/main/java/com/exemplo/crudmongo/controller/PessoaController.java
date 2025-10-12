@@ -51,7 +51,7 @@ public class PessoaController {
      * @return Pessoa atualizada
      */
     @PutMapping("/{id}")
-    public Pessoa atualizar(@PathVariable String id, 
+    public Pessoa atualizar(@PathVariable Long id, 
     @RequestBody Pessoa pessoa) {
         return service.atualizar(id, pessoa);
     }
@@ -62,7 +62,7 @@ public class PessoaController {
      * @param id Identificador da pessoa a ser excluída
      */
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable String id) {
+    public void excluir(@PathVariable Long id) {
         service.excluir(id);
     }
 }
