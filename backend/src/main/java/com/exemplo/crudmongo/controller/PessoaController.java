@@ -4,6 +4,9 @@ import com.exemplo.crudmongo.Model.Pessoa;
 import com.exemplo.crudmongo.service.PessoaService;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 /**
@@ -14,6 +17,7 @@ import java.util.List;
 @CrossOrigin(origins = "*") // Permite requisições de qualquer origem (CORS)
 public class PessoaController {
 
+    @Autowired // Injeção automática do serviço
     private final PessoaService service; // Serviço responsável pela lógica de negócio
 
     /**
@@ -31,6 +35,28 @@ public class PessoaController {
     public List<Pessoa> listar() {
         return service.listarTodas();
     }
+
+    // Buscar pessoas por nome (ex: /pessoas/nome?valor=joao)
+    @GetMapping("/nome")
+    public List<Pessoa> buscarPorNome(@RequestParam("valor") String nome) {
+        return service.buscarPorNome(nome);
+    }
+
+    // Buscar pessoas por idade (ex: /pessoas/idade?valor=30)
+    @GetMapping("/idade")
+    public List<Pessoa> buscarPorIdade(@RequestParam("valor") Integer idade) {
+        return service.buscarPorIdade(idade);
+    }
+
+    // Paginação (ex: /pessoas/pagina?numero=0&tamanho=10)
+    @GetMapping("/pagina")
+    public Page<Pessoa> listarPaginado(@RequestParam(defaultValue = "0") int numero,
+                                       @RequestParam(defaultValue = "10") int tamanho) {
+        return service.listarPaginado(numero, tamanho);
+    }
+    
+
+
 
     /**
      * Cria uma nova pessoa.
