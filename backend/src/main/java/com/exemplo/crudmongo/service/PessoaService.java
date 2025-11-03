@@ -29,8 +29,6 @@ public class PessoaService {
     public PessoaService(PessoaRepository repository) {
         this.repository = repository;
     }
-
-
     /**
      * Retorna todas as pessoas cadastradas no banco de dados.
      * @return Lista de pessoas
@@ -38,8 +36,7 @@ public class PessoaService {
     public List<Pessoa> listarTodas() {
         return repository.findAll();
     }
-    
-    
+        
     public List<Pessoa> buscarPorNome(String nome) {
         return repository.findByNomeContainingIgnoreCase(nome);
     }
