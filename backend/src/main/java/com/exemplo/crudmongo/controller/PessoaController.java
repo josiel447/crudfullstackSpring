@@ -2,6 +2,7 @@ package com.exemplo.crudmongo.controller;
 
 import com.exemplo.crudmongo.Model.Pessoa;
 import com.exemplo.crudmongo.service.PessoaService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -62,7 +63,7 @@ public class PessoaController {
      * @param id Identificador da pessoa a ser excluída
      */
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable String id) {
+    public void excluir(@PathVariable long id) {
         service.excluir(id);
     }
 }

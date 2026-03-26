@@ -2,7 +2,7 @@ package com.exemplo.crudmongo.service;
 
 import com.exemplo.crudmongo.Model.Pessoa;
 import com.exemplo.crudmongo.repository.PessoaRepository;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,18 +46,19 @@ public class PessoaService {
      * @param novaPessoa Dados atualizados da pessoa
      * @return Pessoa atualizada
      */
-    public Pessoa atualizar(String id, Pessoa novaPessoa) {
-        Pessoa pessoa = repository.findById(id).orElseThrow(); // Busca a pessoa pelo ID ou lança exceção se não encontrar
+    public Pessoa atualizar(long id, Pessoa novaPessoa) {
+        Pessoa pessoa = repository.findById(id).map(  pessoa ->
+            ; // Busca a pessoa pelo ID ou lança exceção se não encontrar
         pessoa.setNome(novaPessoa.getNome()); // Atualiza o nome
         pessoa.setIdade(novaPessoa.getIdade()); // Atualiza a idade
-        return repository.save(pessoa); // Salva as alterações
+        return repository.save(pessoa)); // Salva as alterações
     }
 
     /**
      * Exclui uma pessoa pelo ID.
      * @param id Identificador da pessoa a ser excluída
      */
-    public void excluir(String id) {
+    public void excluir(long id) {
         repository.deleteById(id);
     }
 }
