@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 
 @Document(collection = "pessoa") // Indica que esta classe é um documento MongoDB na coleção "pessoa"
-public class Pessoacopy {
+public class Pessoa {
 
     @Id // Indica que este campo é o identificador único do documento
     private long id ;
