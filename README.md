@@ -46,34 +46,40 @@ Você está desenvolvendo uma aplicação de cadastro acadêmico utilizando Java
 ### Diagrama das Entidades
 
 ```mermaid
-erDiagram
-    CURSO {
+  erDiagram
+    TURMA {
         Long id
         String nome
-        int cargaHoraria
+        int ano
+        boolean ativo
+    }
+    MATRICULA {
+        Long id
+        Long pessoaId
+        Long cursoId
+        String dataMatricula
+        boolean ativo
+    }
+    AVALIACAO {
+        Long id
+        Long pessoaId
+        Long disciplinaId
+        double nota
+        String data
         boolean ativo
     }
     PESSOA {
         Long id
         String nome
-        int idade
-        String email
-        boolean ativo
-    }
-    PROFESSOR {
-        Long id
-        String nome
-        String especialidade
-        String email
-        boolean ativo
+        int ano
     }
     DISCIPLINA {
         Long id
-        String nome
-        int cargaHoraria
-        boolean ativo
     }
-    TURMA {
-        Long id
-        String nome
-        int ano
+
+        PESSOA ||--o{ MATRICULA : faz
+    CURSO ||--o{ MATRICULA : possui
+    PESSOA ||--o{ AVALIACAO : recebe
+    DISCIPLINA ||--o{ AVALIACAO : compoe
+    TURMA ||--o{ PESSOA : agrupa
+    PROFESSOR ||--o{ DISCIPLINA : ministra
