@@ -12,11 +12,10 @@ public class Turma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    private Long id;
     private String nome;
-    private int idade;
-    private String email;
+    private int ano;
     private boolean ativo;
 
     public Turma() {
@@ -39,19 +38,11 @@ public class Turma {
     }
 
     public int getIdade() {
-        return idade;
+        return ano;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdade(int ano) {
+        this.ano = ano;
     }
 
     public boolean isAtivo() {

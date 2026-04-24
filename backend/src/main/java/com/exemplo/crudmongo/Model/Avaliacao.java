@@ -13,9 +13,10 @@ public class Avaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String nome;
-    private int cargaHoraria;
+    private Long pessoaId;
+    private Long disciplinaId;
+    private double nota;
+    private String data;
     private boolean ativo;
 
     public Avaliacao() {
@@ -29,20 +30,36 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
-    public int getCargaHoraria() {
-        return cargaHoraria;
+    public Long getDisciplinaId() {
+        return disciplinaId;
     }
 
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
+    public void setDisciplinaId(Long disciplinaId) {
+        this.disciplinaId = disciplinaId;
+    }
+
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public boolean isAtivo() {
