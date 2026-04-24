@@ -13,10 +13,8 @@ public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-    private int idade;
-    private String email;
+    private String area;
     private boolean ativo;
 
     public Professor() {
@@ -38,20 +36,13 @@ public class Professor {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+
+    public String getArea() {
+        return area;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public boolean isAtivo() {

@@ -13,9 +13,8 @@ public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-    private int cargaHoraria;
+   
     private boolean ativo;
 
     public Curso() {
@@ -37,13 +36,6 @@ public class Curso {
         this.nome = nome;
     }
 
-    public int getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
 
     public boolean isAtivo() {
         return ativo;
